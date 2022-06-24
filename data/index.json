@@ -1,0 +1,581 @@
+{
+	"sideBar": {
+		"content": [{
+			"name": "常用网址",
+			"value": "Website",
+			"icon": "icon-wangye",
+			"color": "#1B813E",
+			"show": true,
+			"content": [{
+					"name": "社区 · 资讯",
+					"value": "social",
+					"icon": "icon-shequ",
+					"color": "",
+					"show": true,
+					"content": [{
+							"name": "远景论坛",
+							"url": "http://bbs.pcbeta.com/forum.php",
+							"icon": "pcbeta",
+							"color": "#9bb41d",
+							"show": true
+						},
+						{
+							"name": "CSDN",
+							"url": "https://www.csdn.net/",
+							"icon": "csdn",
+							"color": "#11dee6",
+							"show": true
+						},
+						{
+							"name": "IT天空",
+							"url": "https://www.itsk.com/",
+							"icon": "itsk",
+							"color": "#f13776",
+							"show": true
+						},
+						{
+							"name": "吾爱破解",
+							"url": "https://www.52pojie.cn/",
+							"icon": "pojie",
+							"color": "#44330e",
+							"show": true
+						},
+						{
+							"name": "黑苹果屋",
+							"url": "http://imacos.top/",
+							"icon": "imacos",
+							"color": "#080ac3",
+							"show": true
+						},
+						{
+							"name": "新浪微博",
+							"url": "https://www.weibo.com/",
+							"icon": "weibo",
+							"color": "#ff8140",
+							"show": true
+						},
+						{
+							"name": "百度贴吧",
+							"url": "https://tieba.baidu.com/",
+							"icon": "tieba",
+							"color": "#3385ff",
+							"show": true
+						},
+						{
+							"name": "简书",
+							"url": "https://www.jianshu.com/",
+							"icon": "jianshu",
+							"color": "#ea6f5a",
+							"show": true
+						},
+						{
+							"name": "掘金",
+							"url": "https://juejin.im/",
+							"icon": "juejin",
+							"color": "#c572a9",
+							"show": true
+						},
+						{
+							"name": "SF思否",
+							"url": "https://segmentfault.com/",
+							"icon": "segmentfault",
+							"color": "#69a5af",
+							"show": true
+						},
+						{
+							"name": "知乎",
+							"url": "https://www.zhihu.com/",
+							"icon": "zhihu",
+							"color": "#0084ff",
+							"show": true
+						},
+						{
+							"name": "IT之家",
+							"url": "https://www.ithome.com/",
+							"icon": "ithome",
+							"color": "#d22222",
+							"show": true
+						},
+						{
+							"name": "中关村在线",
+							"url": "http://www.zol.com.cn/",
+							"icon": "zol",
+							"color": "#3686f1",
+							"show": true
+						}
+					]
+				},
+				{
+					"name": "影视 · 音频",
+					"value": "video",
+					"icon": "icon-yingshi",
+					"color": "",
+					"show": true,
+					"content": [{
+							"name": "腾讯视频",
+							"url": "https://v.qq.com/",
+							"icon": "vqq",
+							"color": "#ff5c38",
+							"show": true
+						},
+						{
+							"name": "优酷",
+							"url": "https://www.youku.com/",
+							"icon": "youku",
+							"color": "#24a5ff",
+							"show": true
+						},
+						{
+							"name": "爱奇艺",
+							"url": "https://www.iqiyi.com/",
+							"icon": "iqiyi",
+							"color": "#00be06",
+							"show": true
+						},
+						{
+							"name": "哔哩哔哩",
+							"url": "https://www.bilibili.com/",
+							"icon": "bilibili",
+							"color": "#fb7299",
+							"show": true
+						},
+						{
+							"name": "ACFUN",
+							"url": "https://www.acfun.cn/",
+							"icon": "acfun",
+							"color": "#fd4c5d",
+							"show": true
+						},
+						{
+							"name": "TimeG",
+							"url": "https://music.timeg.cn/",
+							"icon": "timeg",
+							"color": "#2aeb35",
+							"show": true
+						},
+						{
+							"name": "QQ音乐",
+							"url": "https://y.qq.com/",
+							"icon": "yqq",
+							"color": "#31c27c",
+							"show": true
+						},
+						{
+							"name": "网易云音乐",
+							"url": "https://music.163.com/",
+							"icon": "music163",
+							"color": "#C20C0C",
+							"show": true
+						},
+						{
+							"name": "酷狗音乐",
+							"url": "http://www.kugou.com/",
+							"icon": "kugou",
+							"color": "#0c8ed9",
+							"show": true
+						},
+						{
+							"name": "虾米音乐",
+							"url": "https://www.xiami.com/",
+							"icon": "xiami",
+							"color": "#ff410f",
+							"show": true
+						},
+						{
+							"name": "酷我音乐",
+							"url": "http://www.kuwo.cn/",
+							"icon": "kuwo",
+							"color": "#ffe443",
+							"show": true
+						}
+					]
+				},
+				{
+					"name": "办公 · 下载",
+					"value": "workdown",
+					"icon": "icon-bangong",
+					"color": "",
+					"show": true,
+					"content": [{
+							"name": "QQ邮箱",
+							"url": "https://mail.qq.com/",
+							"icon": "mailqq",
+							"color": "#c1d9f3",
+							"show": true
+						},
+						{
+							"name": "网易邮箱",
+							"url": "https://mail.163.com/",
+							"icon": "mail163",
+							"color": "#CE0326",
+							"show": true
+						},
+						{
+							"name": "Outlook",
+							"url": "https://outlook.live.com/",
+							"icon": "outlook",
+							"color": "#0078D4",
+							"show": true
+						},
+						{
+							"name": "Gmail",
+							"url": "https://mail.google.com/",
+							"icon": "gmail",
+							"color": "#C03A2C",
+							"show": true
+						},
+						{
+							"name": "126邮箱",
+							"url": "https://www.126.com/",
+							"icon": "mail126",
+							"color": "#32555a",
+							"show": true
+						},
+						{
+							"name": "百度网盘",
+							"url": "https://pan.baidu.com/",
+							"icon": "baidupan",
+							"color": "#a7945d",
+							"show": true
+						},
+						{
+							"name": "微当下载",
+							"url": "https://weidown.com/",
+							"icon": "weidown",
+							"color": "#749367",
+							"show": true
+						},
+						{
+							"name": "扩展迷",
+							"url": "https://www.extfans.com/",
+							"icon": "extfans",
+							"color": "#9fa9d4",
+							"show": true
+						},
+						{
+							"name": "423Down",
+							"url": "https://www.423down.com/",
+							"icon": "423down",
+							"color": "#4f2045",
+							"show": true
+						},
+						{
+							"name": "免费图库",
+							"url": "https://pixabay.com/zh/",
+							"icon": "pixbay",
+							"color": "#4f2045",
+							"show": true
+						},
+						{
+							"name": "MSDN",
+							"url": "https://msdn.itellyou.cn/",
+							"icon": "itellyou",
+							"color": "#ea0567",
+							"show": true
+						},
+						{
+							"name": "APK下载",
+							"url": "https://apkdl.in/",
+							"icon": "apkdl",
+							"color": "#74d297",
+							"show": true
+						},
+						{
+							"name": "酷安",
+							"url": "https://www.coolapk.com/apk/",
+							"icon": "coolapk",
+							"color": "#6db39d",
+							"show": true
+						},
+						{
+							"name": "微软补丁",
+							"url": "http://www.catalog.update.microsoft.com/Home.aspx",
+							"icon": "update",
+							"color": "#8f050b",
+							"show": true
+						},
+						{
+							"name": "装机员系统",
+							"url": "http://www.7xp.com/cj.html",
+							"icon": "7xp",
+							"color": "#0078D4",
+							"show": true
+						}
+					]
+				},
+				{
+					"name": "开发 · 学习",
+					"value": "study",
+					"icon": "icon-kaifa",
+					"color": "",
+					"show": true,
+					"content": [{
+							"name": "GitHub",
+							"url": "https://github.com/",
+							"icon": "github",
+							"color": "#24292E",
+							"show": true
+						},
+						{
+							"name": "Gitee",
+							"url": "https://gitee.com/",
+							"icon": "gitee",
+							"color": "#C71D23",
+							"show": true
+						},
+						{
+							"name": "工具箱",
+							"url": "https://tool.lu/",
+							"icon": "tool",
+							"color": "#2FB45A",
+							"show": true
+						},
+						{
+							"name": "阿里图标",
+							"url": "https://www.iconfont.cn/",
+							"icon": "iconfont",
+							"color": "#9A744E",
+							"show": true
+						},
+						{
+							"name": "TinyPNG",
+							"url": "https://tinify.cn/",
+							"icon": "tinify",
+							"color": "#C12127",
+							"show": true
+						},
+						{
+							"name": "站长工具",
+							"url": "http://tool.chinaz.com/",
+							"icon": "chinaz",
+							"color": "#41B883",
+							"show": true
+						},
+						{
+							"name": "VSCode",
+							"url": "https://code.visualstudio.com/",
+							"icon": "vscode",
+							"color": "#61DAFB",
+							"show": true
+						},
+						{
+							"name": "CodePen",
+							"url": "https://codepen.io/",
+							"icon": "codepen",
+							"color": "#2FB45A",
+							"show": true
+						},
+						{
+							"name": "Node.JS",
+							"url": "https://nodejs.org/",
+							"icon": "nodejs",
+							"color": "#9A744E",
+							"show": true
+						},
+						{
+							"name": "NPM",
+							"url": "https://www.npmjs.com/",
+							"icon": "npm",
+							"color": "#C12127",
+							"show": true
+						},
+						{
+							"name": "妹子UI",
+							"url": "http://amazeui.shopxo.net/",
+							"icon": "amazeui",
+							"color": "#41B883",
+							"show": true
+						},
+						{
+							"name": "React",
+							"url": "https://react.docschina.org/",
+							"icon": "react",
+							"color": "#61DAFB",
+							"show": true
+						},
+						{
+							"name": "Bootstrap",
+							"url": "https://www.bootcss.com/",
+							"icon": "bootcss",
+							"color": "#DD1B16",
+							"show": true
+						},
+						{
+							"name": "Sass",
+							"url": "https://www.sass.hk/",
+							"icon": "sass",
+							"color": "#CC6699",
+							"show": true
+						},
+						{
+							"name": "W3School",
+							"url": "https://www.w3school.com.cn/",
+							"icon": "w3school",
+							"color": "#C34244",
+							"show": true
+						},
+						{
+							"name": "MDN Web",
+							"url": "https://developer.mozilla.org/",
+							"icon": "mdnweb",
+							"color": "#83D0F2",
+							"show": true
+						},
+						{
+							"name": "微信开放平台",
+							"url": "https://mp.weixin.qq.com/",
+							"icon": "mpweixin",
+							"color": "#83DB40",
+							"show": true
+						},
+						{
+							"name": "阿里云",
+							"url": "https://www.aliyun.com/",
+							"icon": "aliyun",
+							"color": "#FF6A00",
+							"show": true
+						}
+					]
+				},
+				{
+					"name": "关于 · 友情",
+					"value": "about",
+					"icon": "icon-guanyu",
+					"color": "",
+					"show": true,
+					"content": [{
+							"name": "关于我",
+							"url": "https://www.fdfox.cn/about.html",
+							"icon": "",
+							"color": "#41B883",
+							"show": true
+						},
+						{
+							"name": "留言",
+							"url": "https://www.fdfox.cn/book.html",
+							"icon": "",
+							"color": "#24292E",
+							"show": true
+						},
+						{
+							"name": "闪梦博客",
+							"url": "https://www.fdfox.cn/",
+							"icon": "",
+							"color": "#24292E",
+							"show": true
+						},
+						{
+							"name": "闪梦网盘",
+							"url": "https://pan.hacksafe.net/",
+							"icon": "",
+							"color": "#24292E",
+							"show": true
+						} 
+						
+					]
+				}
+			]
+		}, {
+			"name": "个性设置",
+			"value": "Setting",
+			"icon": "icon-pifu",
+			"color": "#1B813E",
+			"show": true,
+			"content": [{
+				"name": "背景",
+				"value": "changebg",
+				"href": "",
+				"color": "#cbcbcb",
+				"icon": "icon-icon-",
+				"show": true,
+				"content": [{
+					"name": "默认背景",
+					"type": "changebg",
+					"value": "moren",
+					"href": "",
+					"color": "",
+					"icon": "",
+					"show": true,
+					"content": ""
+				},{
+					"name": "设置背景图片",
+					"type": "changebg",
+					"value": "changebg",
+					"href": "",
+					"color": "",
+					"icon": "",
+					"show": true,
+					"content": ""
+				}, {
+					"name": "必应壁纸",
+					"type": "changebg",
+					"value": "setBingImage",
+					"href": "",
+					"color": "",
+					"icon": "",
+					"show": true,
+					"content": ""
+				}]
+			}, {
+				"name": "标签",
+				"value": "commonUse",
+				"href": "",
+				"color": "",
+				"icon": "icon-biaoqian_huaban1",
+				"show": true,
+				"content": [{
+					"name": "开启",
+					"value": "website_open",
+					"type": "changeCommonUse",
+					"href": "",
+					"color": "",
+					"icon": "",
+					"show": true,
+					"content": ""
+				}, {
+					"name": "关闭",
+					"value": "website_close",
+					"type": "changeCommonUse",
+					"href": "",
+					"color": "",
+					"icon": "",
+					"show": true,
+					"content": ""
+				}]
+			}, {
+				"name": "数据管理",
+				"value": "dataManagement",
+				"href": "",
+				"color": "",
+				"icon": "icon-shuju",
+				"show": true,
+				"content": [{
+					"name": "常用标签",
+					"value": "commonUseData",
+					"type": "dataManagement",
+					"href": "",
+					"color": "",
+					"icon": "",
+					"show": true,
+					"content": ""
+				}, {
+					"name": "常用网址",
+					"value": "sidebarData",
+					"type": "dataManagement",
+					"href": "",
+					"color": "",
+					"icon": "",
+					"show": true,
+					"content": ""
+				}]
+			}]
+		}]
+	},
+	"copyright": {
+		"href": "https://so.fdfox.cn/",
+		"title": "闪梦搜索",
+		"webks": "2018",
+		"show": true,
+		"copyright": "& <a href='https://www.fdfox.cn'>Fdfox</a>. All rights reserved.<a href='https://beian.miit.gov.cn' target='_blank'>冀ICP备20003424号</a>" 
+	}
+}

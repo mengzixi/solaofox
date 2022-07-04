@@ -443,34 +443,14 @@
 					"icon": "icon-guanyu",
 					"color": "",
 					"show": true,
-					"content": [{
-							"name": "关于我",
-							"url": "https://www.fdfox.cn/about.html",
-							"icon": "",
-							"color": "#41B883",
-							"show": true
-						},
+					"content": [
 						{
-							"name": "留言",
-							"url": "https://www.fdfox.cn/book.html",
+							"name": "老狐狸",
+							"url": "https://www.laofox.com/",
 							"icon": "",
 							"color": "#24292E",
 							"show": true
-						},
-						{
-							"name": "闪梦博客",
-							"url": "https://www.fdfox.cn/",
-							"icon": "",
-							"color": "#24292E",
-							"show": true
-						},
-						{
-							"name": "闪梦网盘",
-							"url": "https://pan.hacksafe.net/",
-							"icon": "",
-							"color": "#24292E",
-							"show": true
-						} 
+						}
 						
 					]
 				}

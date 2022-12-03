@@ -31,8 +31,8 @@ var now = -1;
 var resLength = 0;
 var listIndex = -1;
 var hotList = 0;
-var thisSearch = 'https://so.hacksafe.net/?rew=1&query=';
-$('#search-icon').children().attr('xlink:href', '#icon-google')
+var thisSearch = 'https://www.baidu.com/s?ie=utf-8&wd=';
+$('#search-icon').children().attr('xlink:href', '#icon-baidu')
 var thisSearchIcon = './logo.jpg';
 var storage = window.localStorage;
 if (!storage.stopHot) {
@@ -55,9 +55,7 @@ if (storage.searchEngine != undefined) {
 	$('#txt').attr('placeholder', ssData[2])
 }
 
-
-
-function getHotkeyword(value) {
+function getHotkeywordbak(value) {
     $.ajax({
         type: "GET",
         url: "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su",
@@ -80,8 +78,63 @@ function getHotkeyword(value) {
                         .eq(i)
                         .click(function () {
                             $('#txt').val(this.childNodes[1].nodeValue);
-							aopen(thisSearch + this.childNodes[1].nodeValue);
-                            //window.open(thisSearch + this.childNodes[1].nodeValue);
+							aopen(thisSearch , this.childNodes[1].nodeValue);
+                            $('#box').css('display', 'none')
+                        });
+                    if (i === 0) {
+                        $("#box ul li")
+                            .eq(i)
+                            .css({"border-top": "none"});
+                        $("#box ul span")
+                            .eq(i)
+                            .css({"color": "#fff", "background": "#f54545"})
+                    } else {
+                        if (i === 1) {
+                            $("#box ul span")
+                                .eq(i)
+                                .css({"color": "#fff", "background": "#ff8547"})
+                        } else {
+                            if (i === 2) {
+                                $("#box ul span")
+                                    .eq(i)
+                                    .css({"color": "#fff", "background": "#ffac38"})
+                            }
+                        }
+                    }
+                }
+            } else {
+                $("#box").css("display", "none")
+            }
+        },
+        error: function (res) {
+            console.log(res)
+        }
+    })
+}
+function getHotkeyword(value) {
+    $.ajax({
+        type: "GET",
+        url: "https://sug.so.360.cn/suggest",
+        async: true,
+        data: {
+            word: value
+        },
+        dataType: "jsonp",
+        jsonp: "callback",
+        success: function (res) {
+            $("#box ul").text("");
+            hotList = res.result.length;E
+            if (hotList) {
+                $("#box").css("display", "block");
+                for (var i = 0; i < hotList; i++) {
+                    $("#box ul").append("<li><span>" + (
+                        i + 1
+                    ) + "</span>" + res.result[i].word + "</li>");
+                    $("#box ul li")
+                        .eq(i)
+                        .click(function () {
+                            $('#txt').val(this.childNodes[1].nodeValue);
+							aopen(thisSearch , this.childNodes[1].nodeValue);
                             $('#box').css('display', 'none')
                         });
                     if (i === 0) {
@@ -167,13 +220,22 @@ $("#txt").keydown(function (e) {
         $("#txt").val(hotValue)
     }
     if (e.keyCode === 13) {
-		aopen(thisSearch + $("#txt").val());
+		var keys = $("#txt").val();
+		if (keys.length == 0) {
+				$("#txt").attr("placeholder", "没有关键词无法为你进行搜索！╮(￣▽￣)╭ ");
+				return false
+		}else{
+		aopen(thisSearch , $("#txt").val());
         //window.open(thisSearch + $("#txt").val());
         $("#box").css("display", "none");
         $("#txt").blur();
         $("#box ul li").removeClass("current");
         listIndex = -1
+			
+		}
+		
     }
+		
 });
 $("#search-clear").click(function () {
     $('#txt').val("");
@@ -181,16 +243,34 @@ $("#search-clear").click(function () {
     $("#box").css("display", "none");
 });
 $(".search-btn").click(function () {
-	aopen(thisSearch + $("#txt").val());
-    //window.open(thisSearch + $("#txt").val());
+	var keys = $("#txt").val();
+	if (keys.length == 0) {
+		$("#txt").attr("placeholder", "没有关键词无法为你进行搜索！╮(￣▽￣)╭ ");
+		return false
+	}else{
+	aopen(thisSearch , $("#txt").val());
     $("#box").css("display", "none");
     $("#txt").blur();
     $("#box ul li").removeClass("current");
     listIndex = -1
+	}
 });
 //模拟提交
-function aopen(url) {
-	window.open(url,'_self')
+function aopen(url,data) {
+
+	 
+		data = data
+                .replace(/\%/g,"%25")
+                .replace(/\ /g,"%20")
+                .replace(/\+/g,"%2B")
+                .replace(/\//g,"%2F")
+                .replace(/\?/g,"%3F")
+                .replace(/\&/g,"%26")
+                .replace(/\=/g,"%3D")
+                .replace(/\#/g,"%23");
+	
+
+	window.open(url+data,'_self')
 }
 $("#txt").focus(function () {
    // $(".search-box").css("box-shadow", "0 4px 6px #0000001f");
@@ -217,10 +297,10 @@ $(function () {
                 color: '#3385ff',
                 url: 'https://www.baidu.com/s?ie=utf-8&wd='
             }, {
-                name: '闪梦搜索',
+                name: '谷歌镜像',
                 icon: 'icon-google',
                 color: '#ffb744',
-                url: 'https://so.hacksafe.net/?rew=1&query='
+                url: 'https://search.njau.cf/search?q='
             }, {
                 name: '谷歌',
                 icon: 'icon-google',

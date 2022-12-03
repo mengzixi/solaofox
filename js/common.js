@@ -80,35 +80,6 @@ for (let item in jsonData.sideBar.content) {
 }
 //版权信息渲染
 if (jsonData.copyright.show) {
-	//var id = Math.round(Math.random());
-	var id = 55;
-	if(id == 1){
-		$.ajax({
-            type:"POST",
-            url:"https://www.fdfox.cn/connect.php?act=domainsq",
-            data:{domain:document.domain},
-            datatype: "json",
-            success:function(data){
-			if (data.code == 1)
-			{
-			let copyrightContent = "©#webks#-#after# <a href='#hrefurl#'>#author#</a> "+jsonData.copyright.copyright;
-			let nowDdate = new Date();
-			copyrightContent = copyrightContent.replace("#after#", nowDdate.getFullYear());
-			copyrightContent = copyrightContent.replace("#author#", jsonData.copyright.title);
-			copyrightContent = copyrightContent.replace("#webks#", jsonData.copyright.webks);
-			copyrightContent = copyrightContent.replace("#hrefurl#", jsonData.copyright.href);
-			copyright.innerHTML = `${copyrightContent}`
-				
-			}else{
-				console.log(data);
-				$("body").empty();$("body").append('<h1>'+data.msg+'</h1>');
-			}},
-            error: function(){
-				$("body").empty();$("body").append('<h1>网络错误请检查网络</h1>');
-            } 
-         });
-		
-	}else{
 		let copyrightContent = "©#webks#-#after# <a href='#hrefurl#'>#author#</a> "+jsonData.copyright.copyright;
 			let nowDdate = new Date();
 			copyrightContent = copyrightContent.replace("#after#", nowDdate.getFullYear());
@@ -116,15 +87,9 @@ if (jsonData.copyright.show) {
 			copyrightContent = copyrightContent.replace("#webks#", jsonData.copyright.webks);
 			copyrightContent = copyrightContent.replace("#hrefurl#", jsonData.copyright.href);
 			copyright.innerHTML = `${copyrightContent}`
-	}
 
 }
-//网页文档加载完毕调用动画
-/*document.onreadystatechange = function () {
-	if (document.readyState == "complete") {
-		toggle(loading, 40);
-	}
-}*/
+
 /* 加载本地存储区域/自动加载区域结束 */
 //图标
 function iconf(name) {

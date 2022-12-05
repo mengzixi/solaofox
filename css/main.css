@@ -28,7 +28,7 @@ html {
 	-o-filter: grayscale(100%);
 	filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
 	_filter:none;
-	/*end*/
+	/*end */
 	
 	font-family: 'Noto-Sans-SC-Bold-2', PingFangSC-Light, Microsoft YaHei UI, Microsoft YaHei, helvetica, sans-serif;
 	font-weight: normal;

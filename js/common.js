@@ -1,6 +1,7 @@
 //ajax同步获取json文件数据
 var jsonData = {}; //获取的json文件数据
-var url = "./data/index.json"; //json文件路径
+var jsonlistData = [];
+var url = "./data/link_list.json"; //json文件路径
 $.ajax({
 	type: "get",
 	url: url,
@@ -8,8 +9,15 @@ $.ajax({
 	async: false,
 	success: function (response) {
 		jsonData = response;
+		jsonData.sideBar.content.find(item => item.value == "Website").content.forEach(item => {
+			item.content.forEach(inner => {
+					jsonlistData.push(inner);
+			})
+		})
 	}
 });
+
+
 
 //配置变量
 var sideBarIconFlag = -1; //侧边栏按钮标记
@@ -44,17 +52,23 @@ function removeStorage(key) {
 	let value = window.localStorage.removeItem(key);
 	return value
 }
-if (bg == null) {
-	//globalImage('https://img.hacksafe.net/assets/img/bj.jpg');
-}
 /* 加载本地存储区域/自动加载区域 */
-if (bg && bg !== null && bg !== "setBingImage") {
+if (bg && bg !== null && bg !== "setBingImage" && bg !== "moren" && bg !== "suiji") {
 	globalImage(bg);
 	// WoolGlass(bg);
 }
+
 if (bg == "setBingImage") {
 	setBingImage(true);
 }
+if (bg == "moren") {
+	setmrImage(true);
+}
+if (bg == "suiji") {
+	globalImage("https://www.dmoe.cc/random.php");
+}
+
+
 //默认设置开启显示常用网址功能
 if (showCommonUse == "undefined" || showCommonUse == undefined) {
 	setStorage("showCommonUse", "website_open");
@@ -69,27 +83,21 @@ if (commonUseData && commonUseData !== null) {
 }
 // 动态创建侧边栏图标
 for (let item in jsonData.sideBar.content) {
-	if (jsonData.sideBar.content[item].show) {
+	
 		sideBarTitle.innerHTML +=
 			`
             <div id="${jsonData.sideBar.content[item].value}" class="title-icon">
                 <svg class="icon"><use xlink:href="#${jsonData.sideBar.content[item].icon}"></use></svg>
                 <span>${jsonData.sideBar.content[item].name}</span>
             </div>`
+
+}
+//网页文档加载完毕调用动画
+/*document.onreadystatechange = function () {
+	if (document.readyState == "complete") {
+		toggle(loading, 40);
 	}
-}
-//版权信息渲染
-if (jsonData.copyright.show) {
-		let copyrightContent = "©#webks#-#after# <a href='#hrefurl#'>#author#</a> "+jsonData.copyright.copyright;
-			let nowDdate = new Date();
-			copyrightContent = copyrightContent.replace("#after#", nowDdate.getFullYear());
-			copyrightContent = copyrightContent.replace("#author#", jsonData.copyright.title);
-			copyrightContent = copyrightContent.replace("#webks#", jsonData.copyright.webks);
-			copyrightContent = copyrightContent.replace("#hrefurl#", jsonData.copyright.href);
-			copyright.innerHTML = `${copyrightContent}`
-
-}
-
+}*/
 /* 加载本地存储区域/自动加载区域结束 */
 //图标
 function iconf(name) {
@@ -361,13 +369,22 @@ sideBarContent.addEventListener("click", (e) => {
 	switch (true) {
 		// 选择必应壁纸
 		case e.target.id == "setBingImage":
+			$('#globalImage').remove();
 			setBingImage(false);
 			break;
 		//默认壁纸
 		case e.target.id == "moren":
-			removeStorage('bg');
-			//globalImage('https://img.hacksafe.net/assets/img/bj.jpg');
-			location.reload();
+			$('#globalImage').remove();
+			setmrImage(false);
+			break;
+		case e.target.id == "suiji":
+			$('#globalImage').remove();
+			setStorage("bg", "suiji");
+			setStorageBefore(globalImage("https://www.dmoe.cc/random.php"));
+			break;
+		case e.target.id == "bgnull":
+			$('#globalImage').remove();
+			setStorageBefore(removeStorage('bg'));
 			break;
 			// 开启关闭常用网址功能
 		case (e.target.id.indexOf("website") !== -1):
@@ -599,11 +616,9 @@ function createSetting() {
 		sideBarHtml = "";
 	let settingData = jsonData.sideBar.content.find(item => item.value == "Setting").content;
 	settingData.forEach(item => {
-		if (item.show) {
 			settingInfo += `<p><svg class="icon"><use xlink:href="#${item.icon}"></use></svg>  ${item.name}</p>`;
 			if (item.content !== "" && typeof item.content !== "string" && item.value !== "about") {
 				item.content.forEach(inner => {
-					if (inner.show) {
 						if (typeof inner.content === "string" && inner.content !== "") {
 							//content不为空且为字符串时
 							sideBarHtml += createHtml(inner);
@@ -611,7 +626,6 @@ function createSetting() {
 							//content为空时的内容
 							sideBarHtml += createHtml(inner);
 						}
-					}
 				})
 			} else if (item.value == "about") {
 				sideBarHtml += renderAbout(item);
@@ -631,7 +645,6 @@ function createSetting() {
 
 			}
 			sideBarHtml = "";
-		}
 	})
 	return settingInfo;
 }
@@ -649,7 +662,6 @@ function renderSetting(id, color, name) {
 function renderAbout(data) {
 	let sideBarHtml = "";
 	data.content.forEach(item => {
-		if (item.show) {
 			if (typeof item.content == "string") {
 				sideBarHtml +=
 					`
@@ -668,7 +680,7 @@ function renderAbout(data) {
 				})
 			}
 
-		}
+		
 	})
 	return `<div class="aboutContent" style="border:1px solid ${data.color};">${sideBarHtml}</div>`;
 }
@@ -687,6 +699,24 @@ function renderSideBarContent(id) {
 	}
 	sideBar.className = "moveLeft";
 	stopPropagation();
+}
+function setmrImage(status) {
+	if (getStorage("bg") == "moren" && !status) {
+		openMessage({
+			title: "提示",
+			type: "error",
+			content: "请勿重复选择！"
+		})
+		return;
+	}
+	let bgurl = templates+'/image/bg.png';
+	if (status) {
+		globalImage(bgurl);
+	} else {
+		setStorageBefore(bgurl);
+	}
+	setStorage("bg", "moren");
+	
 }
 //设置必应壁纸为背景
 function setBingImage(status) {
@@ -974,7 +1004,6 @@ function closeMessage(elemt) {
 	}
 }
 /* 消息弹窗结束 */
-
 /* 自定义网址开始 */
 //创建书签数据
 function createWebsite() {
@@ -992,15 +1021,14 @@ function createWebsite() {
 		})
 		setStorage("sideBarWebsiteData", JSON.stringify(customizeData));
 	}
+	
 	websiteData.forEach(item => {
-		if (item.show) {
 			//右侧网址
 			websiteInfo += `<p><svg class="icon"><use xlink:href="#${item.icon}"></use></svg>  ${item.name}</p>`;
-			
 			item.content.forEach(inner => {
-				if (inner.show) {
+
 					sideBarHtml += renderCapsule(inner);
-				}
+					//jsonlistData.push(inner);
 			})
 			JSON.parse(getStorage("sideBarWebsiteData")).forEach(outer => {
 				if (outer.value == item.value) {
@@ -1022,7 +1050,7 @@ function createWebsite() {
                 ${sideBarHtml}
             </div>`;
 			sideBarHtml = "";
-		}
+		
 	})
 	return websiteInfo;
 }
@@ -1181,12 +1209,13 @@ function renderCapsule(data) {
             </div>
         </a>`;
 }
+/*<img src="http://www.pp2.com/index.php?c=icon&url=${btoa(encodeURIComponent(url))}"></img>*/
 //自定义网址模板
 function renderData(id, name, url, color) {
 	return `
     <div class="commons">
         <div class="commons-content">
-            <img src="http://favicon.cccyun.cc/${url}"></img>
+            <img src="${(favicon + url)}"></img>
             <a id="${id}" style="color:${color};" href="${url}" target="_blank">${name}</a>
         </div>
         <div class="commons-btn" title="更多选项">
@@ -1205,3 +1234,402 @@ function addCommonsData() {
 }
 /* 自定义网址结束 */
 
+
+
+(
+    function () {
+    //当浏览器窗口被调整大小时触发
+    window.onresize = function () {
+        ShowHideElement("i-link-box", "linkList-item", 845);
+    }
+    window.onload = function () {
+        ShowHideElement("i-link-box", "linkList-item", 845);
+    }
+
+    function ShowHideElement(Element1, Element2, Vaule) {
+        var Person = document.getElementsByClassName(Element1);
+        var BoxHeight = document.getElementsByClassName(Element2);
+        var WindowHeight = window.innerHeight || document.body.clientHeight;
+        //遍历获取到的元素
+        for (var i = 6; i < Person.length; i++) {
+            if (WindowHeight <= Vaule && deviceVal === "pc") {
+                Person[i].style.display = "none";
+                BoxHeight[0].style.marginTop = "5px";
+            } else {
+                Person[i].style.display = "block";
+                BoxHeight[0].style.marginTop = "0px";
+            }
+        }
+    }
+
+    window.ShowHideElement = ShowHideElement;
+}());
+
+var now = -1;
+var resLength = 0;
+var listIndex = -1;
+var hotList = 0;
+var appList = 0;
+var thisSearch = 'https://www.baidu.com/s?ie=utf-8&wd=';
+$('#search-icon').children().attr('xlink:href', '#icon-baidu')
+var thisSearchIcon = './logo.jpg';
+var storage = window.localStorage;
+if (!storage.stopHot) {
+    storage.stopHot = true
+}
+storage.stopHot == 'false'
+    ? $('#hot-btn').attr(
+        'style',
+        'background: url('+templates+'/image/hotg.svg) no-repeat center/cover;'
+    )
+    : $('#hot-btn').attr(
+        'style',
+        'background: url('+templates+'/image/hotk.svg) no-repeat center/cover;'
+    );
+var ssData = storage.searchEngine;
+if (storage.searchEngine != undefined) {
+    ssData = ssData.split(',');
+    thisSearch = ssData[0];
+    $('#search-icon').children().attr('xlink:href', ssData[1])
+	$('#txt').attr('placeholder', ssData[2])
+}
+function getHotkeyword(value) {
+	var appval =[];
+	jsonlistData.forEach(vallist => {
+		-1 !== vallist.name.toLowerCase().indexOf(value.toLowerCase()) && appval.push({
+			name: vallist.name,
+			icon: vallist.icon,
+			url: vallist.url
+       })
+    })	
+    $.ajax({
+        type: "GET",
+        url: "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su",
+        async: true,
+        data: {
+            wd: value
+        },
+        dataType: "jsonp",
+        jsonp: "cb",
+        success: function (res) {
+            $(".urllist").text("");
+			$(".applist").text("");
+			appval.forEach((inner,i) => {
+					$(".applist").append(`<li><div class="img"><img src="`+favicon+inner.url+`"></div><div class="text">`+inner.name+`</div></li>`);
+					$(".applist li").eq(i).click(function () {
+							aopen(inner.url);
+							$('#box').css('display', 'none')
+						});
+				})
+            hotList = res.s.length;
+            if (hotList) {
+                $("#box").css("display", "block");
+                for (var i = 0; i < hotList; i++) {
+                    $(".urllist").append("<li><span>" + (
+                        i + 1
+                    ) + "</span>" + res.s[i] + "</li>");
+                    $(".urllist li")
+                        .eq(i)
+                        .click(function () {
+                            $('#txt').val(this.childNodes[1].nodeValue);
+							aopen(thisSearch + this.childNodes[1].nodeValue);
+                            //window.open(thisSearch + this.childNodes[1].nodeValue);
+                            $('#box').css('display', 'none')
+                        });
+                    if (i === 0) {
+                        $(".urllist li")
+                            .eq(i)
+                            .css({"border-top": "none"});
+                        $(".urllist span")
+                            .eq(i)
+                            .css({"color": "#fff", "background": "#f54545"})
+                    } else {
+                        if (i === 1) {
+                            $(".urllist span")
+                                .eq(i)
+                                .css({"color": "#fff", "background": "#ff8547"})
+                        } else {
+                            if (i === 2) {
+                                $(".urllist span")
+                                    .eq(i)
+                                    .css({"color": "#fff", "background": "#ffac38"})
+                            }
+                        }
+                    }
+                }
+            } else {
+                $("#box").css("display", "none")
+            }
+        },
+        error: function (res) {
+           // console.log(res)
+        }
+    })
+}
+
+// 按键松开时执行
+$("#txt").keyup(function (e) {
+    if ($(this).val()) {
+        if (e.keyCode == 38 || e.keyCode == 40 || storage.stopHot != 'true') {
+            return
+        }
+        $("#search-clear").css("display", "block");
+        getHotkeyword($(this).val())
+    } else {
+        $("#search-clear").css("display", "none");
+        $("#box").css("display", "none")
+    }
+});
+
+$("#txt").keydown(function (e) {
+    if (e.keyCode === 40) {
+        listIndex === (hotList - 1)
+            ? listIndex = 0
+            : listIndex++;
+        $("#box ul li")
+            .eq(listIndex)
+            .addClass("current")
+            .siblings()
+            .removeClass("current");
+        var hotValue = $("#box ul li")
+            .eq(listIndex)[0]
+            .childNodes[1]
+            .nodeValue;
+        $("#txt").val(hotValue)
+    }
+    if (e.keyCode === 38) {
+        if (e.preventDefault) {
+            e.preventDefault()
+        }
+        if (e.returnValue) {
+            e.returnValue = false
+        }
+        listIndex === 0 || listIndex === -1
+            ? listIndex = (hotList - 1)
+            : listIndex--;
+        $("#box ul li")
+            .eq(listIndex)
+            .addClass("current")
+            .siblings()
+            .removeClass("current");
+        var hotValue = $("#box ul li")
+            .eq(listIndex)[0]
+            .childNodes[1]
+            .nodeValue;
+        $("#txt").val(hotValue)
+    }
+    if (e.keyCode === 13) {
+		aopen(thisSearch + $("#txt").val());
+        //window.open(thisSearch + $("#txt").val());
+        $("#box").css("display", "none");
+        $("#txt").blur();
+        $("#box ul li").removeClass("current");
+        listIndex = -1
+    }
+});
+$("#search-clear").click(function () {
+    $('#txt').val("");
+    $('#search-clear').css('display', 'none');
+    $("#box").css("display", "none");
+});
+$(".search-btn").click(function () {
+	aopen(thisSearch + $("#txt").val());
+    //window.open(thisSearch + $("#txt").val());
+    $("#box").css("display", "none");
+    $("#txt").blur();
+    $("#box ul li").removeClass("current");
+    listIndex = -1
+});
+//模拟提交
+function aopen(url) {
+	window.open(url,'_blank')
+}
+$("#txt").focus(function () {
+   // $(".search-box").css("box-shadow", "0 4px 6px #0000001f");
+    $(".search-box").css("border", "1px solid #4068e0");
+    if ($(this).val() && storage.stopHot == 'true') {
+        getHotkeyword($(this).val())
+    }
+});
+$("#txt").blur(function () {
+    //$(".search-box").css("box-shadow", "0 2px 3px #0000000f");
+    $(".search-box").removeAttr('style');
+    setTimeout(function () {
+        $("#box").css("display", "none")
+    }, 400)
+});
+$(function () {
+    // $('#box ul').html() === '' ? $('#box').css('height','0px') :
+    // $('#box').css('height','auto');
+    var search = {
+        data: [
+            {
+                name: '百度',
+                icon: 'icon-baidu',
+                color: '#3385ff',
+                url: 'https://www.baidu.com/s?ie=utf-8&wd='
+            }, {
+                name: 'F搜',
+                icon: 'icon-google',
+                color: '#ffb744',
+                url: 'https://fsoufsou.com/search?q='
+            }, {
+                name: '谷歌',
+                icon: 'icon-google',
+                color: '#4c8bf5',
+                url: 'https://www.google.com/search?q='
+            }, {
+                name: '必应',
+                color: '#0a8583',
+                icon: 'icon-bing',
+                url: 'https://cn.bing.com/search?q='
+            }, {
+                name: '好搜',
+                icon: 'icon-so',
+                color: '#f8b616',
+                url: 'https://www.so.com/s?q='
+            }, {
+                name: '搜狗',
+                icon: 'icon-sogou',
+                color: '#fe620d',
+                url: 'https://www.sogou.com/web?query='
+            },{
+                name: 'Github',
+                icon: 'icon-github',
+                color: '#24292e',
+                url: 'https://github.com/search?utf8=✓&q='
+            }, {
+                name: '微信',
+                icon: 'icon-wechat',
+                color: '#ff0030',
+                url: 'https://weixin.sogou.com/weixinwap?type=2&query='
+            }, {
+                name: '知乎',
+                icon: 'icon-zhihu',
+                color: '#0078d7',
+                url: 'https://www.zhihu.com/search?type=content&q='
+            }, {
+                name: '微博',
+                icon: 'icon-weibo',
+                color: '#f3131b',
+                url: 'https://s.weibo.com/weibo/'
+            }, {
+                name: '夸克',
+                icon: 'icon-quark',
+                color: '#03bc11',
+                url: 'https://quark.sm.cn/s?q='
+            }, {
+                name: 'shodan',
+                icon: 'icon-safe',
+                color: '#148aff',
+                url: 'https://www.shodan.io/search?query='
+            }
+        ]
+    }
+    /*for (var i = 0; i < search.data.length; i++) {
+        var addList = '<li><i style="background: url(' + search
+            .data[i]
+            .icon + ') no-repeat center/cover;color: ' + search
+            .data[i]
+            .color + '"></i><span>' + search
+            .data[i]
+            .name + '</span></li>'
+        $('.search-engine-list').append(addList);
+    }*/
+	for (var i = 0; i < search.data.length; i++) {
+        var addList = '<li><svg class="icon"><use xlink:href="#' + search.data[i].icon +'"></use></svg><span>' + search
+            .data[i]
+            .name + '</span></li>'
+        $('.search-engine-list').append(addList);
+    }
+
+    $('#search-icon, .search-engine').hover(function () {
+        $('.search-engine').css('display', 'block')
+    }, function () {
+        $('.search-engine').css('display', 'none')
+    });
+
+    $('#hot-btn').on('click', function () {
+        // $(this).toggleClass('icon-kaiguanclose-copy');
+        if (storage.stopHot == 'true') {
+            $(this).attr(
+                'style',
+                'background: url('+templates+'/image/hotg.svg) no-repeat center/cover;'
+            )
+            storage.stopHot = false
+        } else {
+            storage.stopHot = true
+            $(this).attr(
+                'style',
+                'background: url('+templates+'/image/hotk.svg) no-repeat center/cover;'
+            )
+        }
+        //console.log(storage.stopHot)
+    });
+
+    $('.search-engine-list li').click(function () {
+        var _index = $(this).index();
+        var thisIcon = $(this).children().children().attr('xlink:href');
+        var thisText = $(this).text() + '搜索:输入关键词搜索';
+		$('#search-icon use').attr('xlink:href', thisIcon)
+        $('#txt').attr('placeholder', thisText)
+        thisSearch = search
+            .data[_index]
+            .url;
+        $('.search-engine').css('display', 'none')
+
+        storage.searchEngine = [thisSearch, thisIcon, thisText]
+    })
+	
+	
+})
+
+$(document).ready(function () {
+    //菜单点击
+    $("#menu").click(function (event) {
+        $(this).toggleClass('on');
+        $(".list").toggleClass('closed');
+        $(".mywth").toggleClass('hidden');
+    });
+    $("#content").click(function (event) {
+        $(".on").removeClass('on');
+        $(".list").addClass('closed');
+        $(".mywth").removeClass('hidden');
+    });
+});
+
+
+$(document).ready(function(){$("#menu").click(function(s){$(this).toggleClass("on"),$(".list").toggleClass("closed"),$(".mywth").toggleClass("hidden")}),$("#content").click(function(s){$(".on").removeClass("on"),$(".list").addClass("closed"),$(".mywth").removeClass("hidden")})});
+            (function (a, h, g, f, e, d, c, b) {
+                  b = function () {
+                        d = h.createElement(g);
+                        c = h.getElementsByTagName(g)[0];
+                        d.src = e;
+                        d.charset = "utf-8";
+                        d.async = 1;
+                        c.parentNode.insertBefore(d, c)
+                  };
+                  a["SeniverseWeatherWidgetObject"] = f;
+                  a[f] || (a[f] = function () {
+                        (a[f].q = a[f].q || []).push(arguments)
+                  });
+                  a[f].l = +new Date();
+                  if (a.attachEvent) {
+                        a.attachEvent("onload", b)
+                  } else {
+                        a.addEventListener("load", b, false)
+                  }
+            }(window, document, "script", "SeniverseWeatherWidget",
+                  "//cdn.sencdn.com/widget2/static/js/bundle.js?t=" + parseInt((new Date().getTime() / 100000000)
+                        .toString(), 10)));
+            window.SeniverseWeatherWidget('show', {
+                  flavor: "slim",
+                  location: "WX4FBXXFKE4F",
+                  geolocation: true,
+                  language: "auto",
+                  unit: "c",
+                  theme: "auto",
+                  token: decodeURIComponent(atob(xztqkey)),//95e011fd-5d26-4a2a-a8e9-37aa7cc653c4
+                  hover: "enabled",
+                  container: "tp-weather-widget"
+            })

@@ -225,7 +225,7 @@
 }
 
 .capsule {
-    width: 82px;
+    width: 100px;
     height: 28px;
     margin: 8px auto;
     overflow: hidden;
@@ -471,7 +471,7 @@
 }
 
 #copyright {
-    position: absolute;
+    /*position: absolute;
     left: 0;
     bottom: 10px;
     z-index: 1;
@@ -483,14 +483,30 @@
     font-size: 12px;
     transition: 0.5s;
     color: darkgray;
+	position: fixed;*/
+    bottom: 0;
+    height: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: .5;
+	transition: 0.5s;
+	font-size: 12px;
+	text-align: center;
+	position: relative;
+}
+#copyright>span, #copyright>span>a {
+    font-size: 13px;
+    color: #2e2d2c;
+    text-underline: none;
+    list-style: none;
+    text-decoration: none;
+	transition: 0.5s;
 }
 
-#copyright a {
-    height: 20px;
-    line-height: 20px;
-    font-size: 12px;
-    transition: 0.5s;
-    color: darkgray;
+#copyright>span>a:hover, #copyright>span>a>a:hover {
+    color: brown;
 }
 
 #messageList {

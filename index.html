@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-	<head>
-		<meta charset="UTF-8">
-		<meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport">
-		<meta content="no-siteapp" http-equiv="Cache-Control">
-		<title>Fox搜索 - 多引擎聚合搜索主页！</title>
-		<meta name="keywords" content="聚合搜索,Fox搜索,极简搜索,搜索导航,Google搜索">
-		<meta name="description" content="Fox搜索:最便捷的聚合搜索导航,集常用的搜索:含Google公司开发的谷歌搜索引擎,百度,360,soso,搜狗等以及各类网站导航方便大家的搜索服务,一站式搜索资源！">
-		<meta content="yes" name="apple-mobile-web-app-capable">
-		<meta content="yes" name="apple-touch-fullscreen">
-		<meta content="black" name="apple-mobile-web-app-status-bar-style">
-		<meta content="yes" name="full-screen">
-		<meta content="application" name="browsermode">
-		<meta content="true" name="x5-fullscreen">
-		<meta content="app" name="x5-page-mode">
-		<link href="image/favcion.png" rel="shortcut icon">
-		<link href="/css/main.css" rel="stylesheet">
-		<link href="/css/common.css" rel="stylesheet">
-		<script src="//at.alicdn.com/t/font_2560790_ie0hct1oxp.js"></script>
-		<script src="//cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
-	</head>
-	<body>
+<head>
+    <meta charset="utf-8">
+	<title>Fox搜索 - 多引擎聚合搜索主页!</title>
+    <meta content="Fox搜索,聚合搜索导航,导航,搜索导航,简洁导航,个人导航" name="keywords">
+    <meta content="Fox搜索:最便捷的聚合搜索导航,集常用的搜索:含Google公司开发的谷歌搜索引擎,百度,360,soso,搜狗等以及各类网站导航方便大家的搜索服务,一站式搜索资源!" name="description">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+	<link rel="shortcut icon" href="./favicon.ico">
+	<link href="/css/main.css" rel="stylesheet">
+	<link href="/css/common.css" rel="stylesheet">
+	<script src="//at.alicdn.com/t/font_2560790_ie0hct1oxp.js"></script>
+	
+	<script src="//cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+  
+    <script>
+        var xztqkey = "OTVlMDExZmQtNWQyNi00YTJhLWE4ZTktMzdhYTdjYzY1M2M0",
+            templates = '',
+			favicon = 'http://favicon.cccyun.cc/';
+    </script>
+</head>
+
+<body>
 	    <!--侧边栏-->
 				<div id="sideBarButton" ><svg class="icon"><use xlink:href="#icon-category"></use></svg></div>
 				<div id="sideBar">
@@ -31,7 +33,7 @@
 				</div>
 		<div id="content">
 			<div class="con">
-				<div class="shlogo"></div>
+				<div class="shlogo" style="background: url(/image/logo.png) no-repeat center/cover;"></div>
 				<section class="sousuo">
 					<div class="search">
 						<div class="search-box">
@@ -42,7 +44,8 @@
 						</div>
 						<!-- 搜索热词 -->
 						<div class="box search-hot-text" id="box" style="display: none;">
-							<ul></ul>
+							<ul class="applist"></ul>
+							<ul class="urllist"></ul>
 						</div>
 						<!-- 搜索引擎 -->
 						<div class="search-engine" style="display: none;">
@@ -74,16 +77,11 @@
 			<div class="hitokoto"></div>
 		</div>
 		<!--版权声明-->
-		<div id="copyright"></div> 
-
-			
-			
+		<div id="copyright"><span>©2018-2023 Powered by <a href="https://www.laofox.com/">Fox搜索</a><a href="https://beian.miit.gov.cn"> </a> All rights reserved.<a href="https://beian.miit.gov.cn" target="_blank">冀ICP备20003424号</a>
+						</span></div>
 		<!--天气服务-->
 		<div class="mywth" id="tp-weather-widget"></div>
 	</body>
-	
-	<script src="/js/main.js"></script>
 	<script src="/js/common.js"></script>
-
 
 </html>

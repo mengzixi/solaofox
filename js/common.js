@@ -1469,11 +1469,6 @@ $(function () {
                 color: '#3385ff',
                 url: 'https://www.baidu.com/s?ie=utf-8&wd='
             }, {
-                name: 'F搜',
-                icon: 'icon-google',
-                color: '#ffb744',
-                url: 'https://fsoufsou.com/search?q='
-            }, {
                 name: '谷歌',
                 icon: 'icon-google',
                 color: '#4c8bf5',
@@ -1498,6 +1493,11 @@ $(function () {
                 icon: 'icon-github',
                 color: '#24292e',
                 url: 'https://github.com/search?utf8=✓&q='
+            },{
+                name: 'Github文件加速',
+                icon: 'icon-github',
+                color: '#24292e',
+                url: '/'
             }, {
                 name: '微信',
                 icon: 'icon-wechat',

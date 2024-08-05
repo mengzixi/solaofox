@@ -1494,10 +1494,10 @@ $(function () {
                 color: '#24292e',
                 url: 'https://github.com/search?utf8=✓&q='
             },{
-                name: 'Github文件加速',
+                name: '文件加速',
                 icon: 'icon-github',
                 color: '#24292e',
-                url: 'https://so.aci1.com/'
+                url: '/'
             }, {
                 name: '微信',
                 icon: 'icon-wechat',

@@ -1497,7 +1497,7 @@ $(function () {
                 name: 'Github文件加速',
                 icon: 'icon-github',
                 color: '#24292e',
-                url: '/'
+                url: 'https://so.aci1.com/'
             }, {
                 name: '微信',
                 icon: 'icon-wechat',

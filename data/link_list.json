@@ -444,8 +444,22 @@
 					"show": true,
 					"content": [
 						{
-							"name": "老狐狸",
-							"url": "https://www.laofox.com/",
+							"name": "ACI资源网",
+							"url": "https://www.aci1.com/",
+							"icon": "",
+							"color": "#24292E",
+							"show": true
+						},
+						{
+							"name": "FOX搜",
+							"url": "https://so.aci1.com/",
+							"icon": "",
+							"color": "#24292E",
+							"show": true
+						},
+						{
+							"name": "GitHub加速",
+							"url": "https://github.aci1.com/",
 							"icon": "",
 							"color": "#24292E",
 							"show": true

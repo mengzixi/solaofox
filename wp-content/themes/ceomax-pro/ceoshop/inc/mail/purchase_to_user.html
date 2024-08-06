@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>【{site}】叮~您有新的订单信息，请注意查看</title>
+	</head>
+	<body>
+		<div style="background: #F0F2F5; padding: 60px 35px; font-size: 14px;">
+			<div style="width: 750px; margin: 0 auto; background: url('{host}/wp-content/themes/ceomax-pro/ceoshop/assets/img/ceo-mail-bg.jpg') no-repeat center; background-size: cover;border-radius: 10px;">
+				<div style="padding: 50px 50px 60px 50px;">
+					<div style="text-align: center; margin-bottom: 30px;">
+						<a href="{host}" target="_blank" style="display: block;">
+							<img style="height: 49px;" src="{logo}" height="49" border="0">
+						</a>
+					</div>
+					<div style="position: relative;">
+						<div style="background: #fff; padding: 50px;border-radius: 10px;">
+							<div>尊敬的 {mail} 您好！</div>
+							<div style="margin: 30px 0;">
+								<span style="font-weight: bold;font-size: 16px;margin-bottom: 10px;display: block;">您的订单详情</span>
+								<p style="margin: 15px 0;">商品名称：<a href="{product_link}" target="_blank" style="text-decoration: none;color: #006eff;">{product_title}</a></p>
+								<p style="margin: 15px 0;">支付金额：{money}</p>
+								<p style="margin: 15px 0;">订单时间：{time}</p>
+								<p style="margin: 15px 0;">{code}</p>
+							</div>
+							<div style="text-align: center;">
+							<a href="{host}/member/order/" target="_blank" style="display: block;background: #006eff;color: #fff;font-size: 15px;padding: 15px 10px;text-decoration: none;border-radius: 4px;">查看详情</a>
+							</div>
+							<div style="text-align: center;margin-top: 30px;background: #f0f2f5;padding: 15px;border-radius: 4px;">
+								<p style="font-size: 12px;color: #b1b1b1;margin: 10px 0;">Copyright © 2023 {site}  All rights reserved</p>
+								<p style="font-size: 12px;color: #b1b1b1;margin: 10px 0;">本邮件为系统邮件，请勿直接回复本邮件！<p>
+							</div>
+						</div>
+						<div style="width: 100%;bottom: -10px;z-index: 2;position: absolute;">
+							<div style="height: 50px;background: #fff;margin: 0 10px;opacity: .5;border-radius: 10px;"></div>
+						</div>
+						<div style="width: 100%;bottom: -20px;z-index: 1;position: absolute;">
+							<div style="height: 50px;background: #fff;margin: 0 20px;opacity: .2;border-radius: 10px;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+ 
+</html>

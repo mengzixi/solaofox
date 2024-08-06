@@ -1,0 +1,81 @@
+/* 全局样式 */
+#ceo-app .pagination {
+    display: inline-block;
+}
+
+#ceo-app .form-help-text {
+    font-size: 12px;
+    color: #909399;
+}
+#ceo-app .el-divider {
+    background-color: #f5f7fa;
+}
+#ceo-app .el-table th.el-table__cell{
+    font-weight: 400;
+    color: #303133;
+}
+/*统计模块*/
+.card-row1-title {
+    font-size: 16px;
+    margin: 10px 0;
+    text-align: left;
+}
+.card-row1-number {
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: left;
+}
+#ceo-app .el-statistic .head {
+    margin-bottom: 6px;
+    color: #909399;
+    font-size: 12px;
+}
+#ceo-app .el-statistic .con .number {
+    font-size: 16px;
+    padding: 0 4px;
+}
+#ceo-app .el-card{
+    border: 0px solid #EBEEF5;
+    box-shadow: initial;
+}
+/* 默认样式覆盖 */
+.el-input-number .el-input__inner {
+    text-align: left;
+}
+
+.el-input__inner {
+    background-color: #FFF !important;
+    border: 1px solid #DCDFE6 !important;
+}
+
+.el-input.is-active .el-input__inner,
+.el-input__inner:focus {
+    border-color: #409EFF !important;
+    outline: 0 !important;
+    box-shadow: unset !important;
+}
+/*图标样式*/
+.ceo-manage-icon{
+    font-size: 36px;
+    float: right;
+    margin-right: 20px;
+    padding: 20px;
+    border-radius: 50px;
+}
+.ceo-manage-icon-blue{
+    background: rgb(70 174 253 / 15%);
+    color: #46aefd;
+}
+.ceo-manage-icon-green{
+    background: rgb(70 235 179 / 15%);
+    color: #46ebb3;
+}
+.ceo-manage-icon-yellow{
+    background: rgb(254 198 88 / 15%);
+    color: #fec658;
+}
+.ceo-manage-icon-red{
+    background: rgb(255 121 140 / 15%);
+    color: #ff798c;
+}

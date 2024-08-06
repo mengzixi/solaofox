@@ -1,0 +1,5 @@
+{
+    "require": {
+        "jjonline/aliyun-dysms-php-sdk": "^2.0"
+    }
+}

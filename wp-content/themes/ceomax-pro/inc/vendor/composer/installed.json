@@ -1,0 +1,198 @@
+{
+    "packages": [
+        {
+            "name": "kosinix/grafika",
+            "version": "2.0.8",
+            "version_normalized": "2.0.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kosinix/grafika.git",
+                "reference": "211f61fc334b8b36616b23e8af7c5727971d96ee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kosinix/grafika/zipball/211f61fc334b8b36616b23e8af7c5727971d96ee",
+                "reference": "211f61fc334b8b36616b23e8af7c5727971d96ee",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "time": "2017-06-20T03:13:49+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Grafika\\": "src/Grafika"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT",
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Nico Amarilla",
+                    "homepage": "https://www.kosinix.com"
+                }
+            ],
+            "description": "An image manipulation library for PHP.",
+            "homepage": "http://kosinix.github.io/grafika",
+            "keywords": [
+                "grafika"
+            ],
+            "support": {
+                "issues": "https://github.com/kosinix/grafika/issues",
+                "source": "https://github.com/kosinix/grafika/tree/develop"
+            },
+            "install-path": "../kosinix/grafika"
+        },
+        {
+            "name": "psr/http-message",
+            "version": "1.0.1",
+            "version_normalized": "1.0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "install-path": "../psr/http-message"
+        },
+        {
+            "name": "yurunsoft/pay-sdk",
+            "version": "v2.0.4",
+            "version_normalized": "2.0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Yurunsoft/PaySDK.git",
+                "reference": "7e7a1f24fe1628668f62ff5ff879fa0b7f8621fc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Yurunsoft/PaySDK/zipball/7e7a1f24fe1628668f62ff5ff879fa0b7f8621fc",
+                "reference": "7e7a1f24fe1628668f62ff5ff879fa0b7f8621fc",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.4|^7.0",
+                "yurunsoft/yurun-http": "~3.0"
+            },
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Yurun\\PaySDK\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "install-path": "../yurunsoft/pay-sdk"
+        },
+        {
+            "name": "yurunsoft/yurun-http",
+            "version": "v3.0.5",
+            "version_normalized": "3.0.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Yurunsoft/YurunHttp.git",
+                "reference": "015e6cbf4892053131e7064df7baa532ebb22dd4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Yurunsoft/YurunHttp/zipball/015e6cbf4892053131e7064df7baa532ebb22dd4",
+                "reference": "015e6cbf4892053131e7064df7baa532ebb22dd4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "psr/http-message": "~1.0"
+            },
+            "require-dev": {
+                "swoft/swoole-ide-helper": "~2.0"
+            },
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Yurun\\Util\\": "./src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "install-path": "../yurunsoft/yurun-http"
+        },
+        {
+            "name": "yurunsoft/yurun-oauth-login",
+            "version": "v2.0.3",
+            "version_normalized": "2.0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Yurunsoft/YurunOAuthLogin.git",
+                "reference": "a076062889a731bdf5cf959019223280f8f134b2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Yurunsoft/YurunOAuthLogin/zipball/a076062889a731bdf5cf959019223280f8f134b2",
+                "reference": "a076062889a731bdf5cf959019223280f8f134b2",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": ">=5.4",
+                "yurunsoft/yurun-http": "~3.0"
+            },
+            "time": "2019-04-13T02:03:37+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Yurun\\OAuthLogin\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "YurunOAuthLogin是一个PHP 第三方登录授权 SDK，集成了QQ、微信、微博、Github等常用接口。可以轻松嵌入支持 PHP >= 5.4 的任何系统中。",
+            "support": {
+                "issues": "https://github.com/Yurunsoft/YurunOAuthLogin/issues",
+                "source": "https://github.com/Yurunsoft/YurunOAuthLogin/tree/v2.0.3"
+            },
+            "install-path": "../yurunsoft/yurun-oauth-login"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

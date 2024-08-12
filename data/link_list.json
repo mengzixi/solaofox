@@ -463,6 +463,13 @@
 							"icon": "",
 							"color": "#24292E",
 							"show": true
+						},
+						{
+							"name": "ACI图床",
+							"url": "https://img.aci1.com/",
+							"icon": "",
+							"color": "#24292E",
+							"show": true
 						}
 						
 					]
